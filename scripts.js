@@ -2,8 +2,10 @@
 const list = document.querySelector('ul')
 const botaoMostrarTudo = document.querySelector('.show-all')
 const botãoMap = document.querySelector('.map-all') //procurando a classe do botão do MAP
+const somarTudoValores =document.querySelector('.somarTudo')
 
 let minhaLista = ''//variavel começando por vazia
+
 
 function showAll(produtosArray) { //tudo que esta dentro dessa função só irá ser executado depois que o botão for clicado. 
 
@@ -38,7 +40,21 @@ function mostrarMap (){ //função que será executada ao clicar no botão de MA
 
 }
 
+//FAZER A OPERAÇÃO DO REDUCE PARA VERIFICAR O PREÇO DE TODOS OS PRODUTOS. 
+
+function somarTudo(){
+    const totalValue = menuOptions.reduce((acumulador,valorAtual) => acumulador + valorAtual.price, 0)
+
+    list.innerHTML = 
+            `<li>
+                <p> O valor total dos itens é R$ ${totalValue}</p>
+            </li>`
+}
+            
+
+
 botaoMostrarTudo.addEventListener('click', () => showAll(menuOptions)) //preciso descobrir quando meu botao foi clicado. 
 botãoMap.addEventListener('click', mostrarMap) //preciso descobrir quando meu botao foi clicado. 
+somarTudoValores.addEventListener('click', somarTudo)
 
 
