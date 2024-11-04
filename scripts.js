@@ -3,6 +3,9 @@ const list = document.querySelector('ul')
 const botaoMostrarTudo = document.querySelector('.show-all')
 const botãoMap = document.querySelector('.map-all') //procurando a classe do botão do MAP
 const somarTudoValores =document.querySelector('.somarTudo')
+const filtrarTudo = document.querySelector('.filtrarTudo')
+
+
 
 let minhaLista = ''//variavel começando por vazia
 
@@ -50,11 +53,22 @@ function somarTudo(){
                 <p> O valor total dos itens é R$ ${totalValue}</p>
             </li>`
 }
-            
 
+//FAZENDO O FILTRO DAS INFORMAÇÕES
+
+function filtrarValores() {
+    const filterJustVegan = menuOptions.filter((produtos) => produtos.vegan)      
+    
+    showAll(filterJustVegan)
+
+}
+
+
+//os ouvintes dos botões ao serem clicados dentro da minha aplicação.
 
 botaoMostrarTudo.addEventListener('click', () => showAll(menuOptions)) //preciso descobrir quando meu botao foi clicado. 
 botãoMap.addEventListener('click', mostrarMap) //preciso descobrir quando meu botao foi clicado. 
 somarTudoValores.addEventListener('click', somarTudo)
+filtrarTudo.addEventListener('click', filtrarValores)
 
 
